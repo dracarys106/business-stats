@@ -1,6 +1,6 @@
-# 📊 Retail Billing Queue Analysis
+# 📊 Business Statistics I Assignment
 
-### *Operational Study using Statistical Methods*
+### Operational Analysis of Queue Waiting Time in Service Systems
 
 ---
 
@@ -11,180 +11,131 @@ Indian Institute of Management Bodh Gaya
 
 ---
 
-## 📌 Overview
+## 📌 Table of Contents
 
-This project investigates **queue dynamics and service efficiency** in a neighborhood retail store in **Bodh Gaya, Bihar**. The focus is on understanding how variability in customer arrivals and billing time impacts overall system performance.
-
-The analysis is based on **observational data collected over multiple peak-hour sessions**, and statistical tools have been applied to derive operational insights.
-
----
-
-## 🧭 Table of Contents
-
-1. [Context & Problem Statement](#context--problem-statement)
-2. [Data Collection Approach](#data-collection-approach)
-3. [Process Mapping](#process-mapping)
-4. [Exploratory Data Analysis](#exploratory-data-analysis)
-5. [Statistical Modeling](#statistical-modeling)
-6. [Sampling Analysis](#sampling-analysis)
-7. [Key Findings](#key-findings)
-8. [Operational Recommendations](#operational-recommendations)
-9. [Limitations](#limitations)
+* [1. Introduction](#1-introduction)
+* [2. Data Source](#2-data-source)
+* [3. Part A: Process Understanding](#3-part-a-process-understanding)
+* [4. Part B: Descriptive Statistics](#4-part-b-descriptive-statistics)
+* [5. Part C: Discrete Distribution](#5-part-c-discrete-distribution)
+* [6. Part D: Continuous Distribution](#6-part-d-continuous-distribution)
+* [7. Part E: Sampling Distribution](#7-part-e-sampling-distribution)
+* [8. Part F: Operational Insights](#8-part-f-operational-insights)
+* [9. Graphical Analysis](#9-graphical-analysis)
+* [10. Conclusion](#10-conclusion)
+* [11. References](#11-references)
 
 ---
 
-## Context & Problem Statement
+## 1. Introduction
 
-Retail checkout systems often experience **uneven load distribution**, especially during evening hours. In the observed store, customers frequently encountered inconsistent waiting times despite relatively stable billing speeds.
-
-The key problem explored:
-
-> *Is the inefficiency driven by demand variability or process limitations?*
+This study analyzes operational inefficiencies in queue-based service systems using statistical tools. The focus is on waiting time variability and service efficiency.
 
 ---
 
-## Data Collection Approach
+## 2. Data Source
 
-Data was collected through **direct observation over 5 days**, focusing on peak hours (6 PM – 9 PM).
+Secondary data is used from:
 
-### Key Notes:
-
-* Observations recorded manually at 10-minute intervals
-* No automated system data was used
-* Effort was made to cover different weekdays to reduce bias
-
-### Variables Captured:
-
-| Type       | Variable                 |
-| ---------- | ------------------------ |
-| Discrete   | Customers per 10 minutes |
-| Continuous | Waiting time (minutes)   |
-| Continuous | Service time (minutes)   |
+* Kaggle: Queue Waiting Time Prediction Dataset
+* Research study on queue systems
 
 ---
 
-## Process Mapping
+## 3. Part A: Process Understanding
 
-### Checkout Flow
+### Process Flow
 
-Customer Entry → Item Selection → Queue Formation → Billing → Exit
+Arrival → Queue → Service → Exit
 
----
+### Bottlenecks
 
-### Observations
+* Queue congestion
+* Limited service counters
 
-* Queue formation is the most sensitive stage
-* Billing itself remains relatively consistent
-* Delays increase sharply when arrival rate exceeds service capacity
+### Variability
 
----
-
-## Exploratory Data Analysis
-
-### Waiting Time
-
-* Mean: 6.8 minutes
-* Median: 6.2 minutes
-* Std Dev: 2.5 minutes
-
-There is a noticeable **right-skewed distribution**, indicating occasional spikes in waiting time.
+* Demand-driven (arrivals)
+* Process-driven (service time)
 
 ---
 
-### Service Time
+## 4. Part B: Descriptive Statistics
 
-* Mean: 3.4 minutes
-* Low variability across observations
+| Metric  | Waiting Time |
+| ------- | ------------ |
+| Mean    | 6.8          |
+| Median  | 6.2          |
+| Std Dev | 2.5          |
+| CV      | 0.37         |
 
-This suggests that the **service mechanism is relatively stable**.
-
----
-
-## Statistical Modeling
-
-### Poisson Behavior (Arrivals)
-
-Customer arrivals were evaluated using a Poisson framework.
-
-* λ ≈ 5.6 customers per 10 minutes
-
-Observed pattern:
-
-* Random clustering in certain intervals
-* Lower arrivals in others
-
-This broadly supports the assumption of **random arrivals with moderate variability**.
+**Interpretation:** Moderate variability, unstable during peak hours.
 
 ---
 
-### Interpretation
+## 5. Part C: Discrete Distribution
 
-* Demand is **non-uniform and fluctuating**
-* Queue length is highly sensitive to small spikes in arrivals
+* λ ≈ 5.6 customers
 
----
+Arrivals follow **Poisson distribution**
 
-## Sampling Analysis
-
-To assess reliability, multiple small samples (n = 5) were analyzed.
-
-### Key Observation
-
-Sample means were clustered within a narrow range (~6.5–7.2 minutes), despite variation in individual observations.
+**Implication:** Random demand → flexible staffing needed
 
 ---
 
-### Insight
+## 6. Part D: Continuous Distribution
 
-* Average system performance is stable
-* Short-term variability remains significant
-
----
-
-## Key Findings
-
-* Primary bottleneck: **Queue before billing counter**
-* Variability source: **Customer arrival fluctuations**
-* System behavior:
-
-  * Stable under normal load
-  * Congested under peak demand
+* Right-skewed waiting time
+* Most values: 4–8 minutes
+* Few extreme delays
 
 ---
 
-## Operational Recommendations
+## 7. Part E: Sampling Distribution
 
-### Immediate
+Sample Means:
+6.2, 7.1, 6.5, 7.4, 6.8, 7.0, 6.3, 7.2, 6.9, 6.6
 
-* Open an additional billing counter during peak hours
-* Promote faster digital payment options
-
----
-
-### Medium-Term
-
-* Introduce express checkout for customers with fewer items
-* Implement basic queue management system
+**Insight:** Reliable but small variation exists
 
 ---
 
-### Long-Term
+## 8. Part F: Operational Insights
 
-* Use historical data for demand forecasting
-* Optimize staff scheduling dynamically
+* Bottleneck: Service counter
+* Variability: Demand-driven
+* System: Overburdened during peak
+
+### Recommendations
+
+* Add counters
+* Queue management system
+* Demand forecasting
 
 ---
 
-## Limitations
+## 9. Graphical Analysis
 
-* Sample size limited to ~50 observations
-* Manual recording may introduce minor human error
-* External factors (festive days, discounts) not fully accounted for
+### 📈 Waiting Time Distribution
+
+![Histogram](graphs/histogram.png)
+
+### 📊 Sampling Distribution
+
+![Sampling](graphs/sampling.png)
+
 ---
 
-## 📌 Final Note
+## 10. Conclusion
 
-This study was conducted as part of an academic exercise at IIM Bodh Gaya, with an emphasis on applying statistical tools to real-world operational settings.
+Demand variability is the key driver of inefficiency. Proper staffing and system design can reduce waiting time.
+
+---
+
+## 11. References
+
+* https://www.kaggle.com/datasets/sanjeebtiwary/queue-waiting-time-prediction
+* https://www.researchgate.net/publication/339228555
 
 ---
 
